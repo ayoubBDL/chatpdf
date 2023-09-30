@@ -25,13 +25,12 @@ export async function POST(req: Request, res: Response) {
     const fileKey = _chats[0].fileKey;
     const lastMessage = messages[messages.length - 1];
     const context = await getContext(lastMessage.content, fileKey);
-    // if (!context) {
-    //   return NextResponse.json(
-    //     { error: "Cannot retrieve data from Pinecone" },
-    //     { status: 404 }
-    //   );
-    // }
-    // console.log("context ==========", context);
+    if (!context) {
+      return NextResponse.json(
+        { error: "Cannot retrieve data from Pinecone" },
+        { status: 404 }
+      );
+    }
 
     const prompt = {
       role: "system",

@@ -13,9 +13,7 @@ export async function POST(req: Request, res: Response) {
   try {
     const body = await req.json();
     const { file_key, file_name } = body;
-    console.log("before loadS3IntoPinecone", file_key, file_name);
     await loadS3IntoPinecone(file_key);
-    console.log("after loadS3IntoPinecone", file_key, file_name);
 
     const chat_id = await db
       .insert(chats)
@@ -28,9 +26,6 @@ export async function POST(req: Request, res: Response) {
       .returning({
         insertedId: chats.id,
       });
-
-    console.log("child chat id", chat_id);
-
     return NextResponse.json(
       {
         chat_id: chat_id[0].insertedId,
