@@ -9,7 +9,7 @@ import axios from "axios";
 import SubscriptionButton from "./SubscriptionButton";
 
 type Props = {
-  chats: DrizzleChat;
+  chats: DrizzleChat[];
   chatId: number;
   isPro: boolean;
 };

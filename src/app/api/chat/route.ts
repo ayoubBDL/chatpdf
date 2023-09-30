@@ -77,7 +77,7 @@ export async function POST(req: Request, res: Response) {
         });
       },
     });
-    return new StreamingTextResponse(stream);
+    return new StreamingTextResponse(stream)! as NextResponse;
   } catch (error) {
     console.log(error);
   }
