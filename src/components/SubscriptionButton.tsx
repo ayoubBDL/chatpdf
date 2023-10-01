@@ -23,7 +23,7 @@ const SubscriptionButton = ({ isPro }: Props) => {
       disabled={isLoading}
       onClick={handleSubscription}
       variant="outline"
-      className="text-slate-200"
+      className="text-slate-600"
     >
       {isPro ? "Manage Subscription" : "Get Pro"}
     </Button>
