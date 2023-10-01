@@ -19,7 +19,12 @@ const SubscriptionButton = ({ isPro }: Props) => {
     }
   };
   return (
-    <Button disabled={isLoading} onClick={handleSubscription} variant="outline">
+    <Button
+      disabled={isLoading}
+      onClick={handleSubscription}
+      variant="outline"
+      className="text-slate-200"
+    >
       {isPro ? "Manage Subscription" : "Get Pro"}
     </Button>
   );
